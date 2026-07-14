@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt gallery — Loupe /flow prompts for AI-built sites</title>
+  <meta name="description" content="Build a Loupe /flow prompt from a controlled vocabulary — structure, archetype, imagery, motion, density — each bound to real design-library knowledge. Copy a ready-made prompt or compose your own." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Loupe · Prompt gallery" />
+  <meta property="og:description" content="Compose a /flow prompt from a vocabulary bound to real design knowledge, or copy a ready-made one." />
+  <meta property="og:image" content="https://winchxyz.github.io/loupe-website/assets/img/loupe-hero.png" />
+  <meta property="og:url" content="https://winchxyz.github.io/loupe-website/gallery.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://winchxyz.github.io/loupe-website/gallery.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="icon" href="assets/brand/loupe-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html#top" aria-label="Loupe home">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html#loop">The loop</a>
+      <a href="features.html">Features</a>
+      <a href="gallery.html" class="is-current">Prompt gallery</a>
+      <a href="download.html">Download</a>
+    </nav>
+    <a href="download.html" class="btn btn--ghost nav__cta magnetic">Get Loupe</a>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="page-hero">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>Prompt gallery</p>
+      <h1 class="section-title">A vocabulary for the <span class="grad">sites you want.</span></h1>
+      <p class="section-lead">Add <span class="mono" style="color:var(--c4)">key=value</span> words to a <span class="mono">/flow</span> brief and each binds to real library knowledge — a structure playbook, an art-direction archetype, a motion and imagery stance. So <span class="mono">structure=bento</span> reliably means the bento playbook, not whatever the model improvises. Free text still works; the vocabulary is a menu, not a cage.</p>
+    </section>
+
+    <!-- BUILDER -->
+    <section class="page-section" id="builder">
+      <div class="builder" data-builder>
+        <div class="builder__controls">
+          <div class="reveal">
+            <div class="ctrl__head"><span class="k" id="briefLabel">Your brief</span><span class="hint">free text — edit freely</span></div>
+            <textarea id="builderBrief" rows="4" aria-labelledby="briefLabel">Site for "Northwind Studio" — a boutique product-design studio for early-stage founders.
+Pages: Home, Work, Studio, Contact. Lead with the work; quiet, confident, plenty of air.</textarea>
+          </div>
+          <div class="reveal">
+            <div class="ctrl__head"><span class="k">structure=</span><span class="hint">the page's spine</span></div>
+            <div class="opts" role="group" aria-label="structure">
+              <button class="opt sel" type="button" data-axis="structure" data-val="bento" aria-pressed="true">bento</button>
+              <button class="opt" type="button" data-axis="structure" data-val="poster" aria-pressed="false">poster</button>
+              <button class="opt" type="button" data-axis="structure" data-val="diagram" aria-pressed="false">diagram</button>
+              <button class="opt" type="button" data-axis="structure" data-val="editorial" aria-pressed="false">editorial</button>
+              <button class="opt" type="button" data-axis="structure" data-val="dwell" aria-pressed="false">dwell</button>
+              <button class="opt" type="button" data-axis="structure" data-val="marquee" aria-pressed="false">marquee</button>
+              <button class="opt" type="button" data-axis="structure" data-val="numeral-rail" aria-pressed="false">numeral-rail</button>
+              <button class="opt" type="button" data-axis="structure" data-val="demo-hero" aria-pressed="false">demo-hero</button>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="ctrl__head"><span class="k">archetype=</span><span class="hint">the whole art direction</span></div>
+            <div class="opts" role="group" aria-label="archetype">
+              <button class="opt" type="button" data-axis="archetype" data-val="engineer-grid" aria-pressed="false">engineer-grid</button>
+              <button class="opt" type="button" data-axis="archetype" data-val="luxury-dark" aria-pressed="false">luxury-dark</button>
+              <button class="opt" type="button" data-axis="archetype" data-val="brutalist-tech" aria-pressed="false">brutalist-tech</button>
+              <button class="opt sel" type="button" data-axis="archetype" data-val="swiss-grid" aria-pressed="true">swiss-grid</button>
+              <button class="opt" type="button" data-axis="archetype" data-val="retro-terminal" aria-pressed="false">retro-terminal</button>
+              <button class="opt" type="button" data-axis="archetype" data-val="editorial-serif" aria-pressed="false">editorial-serif</button>
+              <button class="opt" type="button" data-axis="archetype" data-val="soft-organic" aria-pressed="false">soft-organic</button>
+            </div>
+          </div>
+          <div class="reveal">
+            <div class="ctrl__head"><span class="k">imagery=</span><span class="hint">how visuals are made</span></div>
+            <div class="opts" role="group" aria-label="imagery">
+              <button class="opt sel" type="button" data-axis="imagery" data-val="photo" aria-pressed="true">photo</button>
+              <button class="opt" type="button" data-axis="imagery" data-val="illustration" aria-pressed="false">illustration</button>
+              <button class="opt" type="button" data-axis="imagery" data-val="minimal" aria-pressed="false">minimal</button>
+            </div>
+          </div>
+          <div class="grid-2" style="gap:24px;">
+            <div class="reveal">
+              <div class="ctrl__head"><span class="k">motion=</span><span class="hint">how it moves</span></div>
+              <div class="opts" role="group" aria-label="motion">
+                <button class="opt" type="button" data-axis="motion" data-val="calm" aria-pressed="false">calm</button>
+                <button class="opt sel" type="button" data-axis="motion" data-val="rich" aria-pressed="true">rich</button>
+                <button class="opt" type="button" data-axis="motion" data-val="webgl" aria-pressed="false">webgl</button>
+              </div>
+            </div>
+            <div class="reveal">
+              <div class="ctrl__head"><span class="k">density=</span><span class="hint">ideas per screen</span></div>
+              <div class="opts" role="group" aria-label="density">
+                <button class="opt sel" type="button" data-axis="density" data-val="airy" aria-pressed="true">airy</button>
+                <button class="opt" type="button" data-axis="density" data-val="dense" aria-pressed="false">dense</button>
+              </div>
+            </div>
+          </div>
+          <p class="hero__trust" style="margin-top:0">Tip: click a selected chip again to clear it — an omitted axis isn't constrained.</p>
+        </div>
+
+        <div class="builder__out">
+          <div class="prompt-card reveal">
+            <div class="prompt-card__bar">
+              <span class="lbl">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 9 3 3-3 3M13 15h3"/><rect x="3" y="4" width="18" height="16" rx="2"/></svg>
+                your prompt
+              </span>
+              <button class="copybtn magnetic" type="button" data-copy="#builderOut">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+                <span class="copytxt">Copy</span>
+              </button>
+            </div>
+            <div class="prompt-card__body" id="builderOut"></div>
+            <div class="prompt-card__foot">Paste this into Loupe's chat with experimental features on. Each <span class="mono">key=value</span> unfolds host-side into a binding block appended to your brief — unknown values are reported, never silently dropped.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-row"><hr /></div>
+
+    <!-- PRESETS -->
+    <section class="page-section">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span>Ready-made</p>
+      <h2 class="section-title reveal" style="margin-top:16px;">Six starting points.</h2>
+      <p class="section-lead reveal" style="margin-bottom:32px;">Different structure + archetype pairings, each a different site. Copy one, swap the name and pages, and go.</p>
+
+      <div class="presets">
+        <article class="preset reveal">
+          <div class="preset__swatch sw-eng"><span class="lab">engineer-grid</span></div>
+          <div class="preset__meta"><h3>Instrument-grade SaaS</h3>
+            <div class="preset__tags"><span class="t">structure=bento</span><span class="t">imagery=minimal</span><span class="t">density=dense</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p1">/flow Landing page for "Meterly" — usage-based billing for API companies.
+Pages: Home, Pricing, Docs, Changelog.
+structure=bento archetype=engineer-grid imagery=minimal motion=calm density=dense</pre>
+            <div class="actions"><span class="hintl">Flat paper, hairlines, one prism accent.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preset reveal">
+          <div class="preset__swatch sw-lux"><span class="lab">luxury-dark</span></div>
+          <div class="preset__meta"><h3>Architect's portfolio</h3>
+            <div class="preset__tags"><span class="t">structure=poster</span><span class="t">imagery=photo</span><span class="t">density=airy</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p2">/flow Portfolio for "Halden" — an independent architect.
+Pages: Home, Projects, Studio, Contact.
+structure=poster archetype=luxury-dark imagery=photo motion=rich density=airy</pre>
+            <div class="actions"><span class="hintl">Near-black, antique-gold, serif display.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preset reveal">
+          <div class="preset__swatch sw-bru"><span class="lab">brutalist-tech</span></div>
+          <div class="preset__meta"><h3>Creative-engineering studio</h3>
+            <div class="preset__tags"><span class="t">structure=marquee</span><span class="t">imagery=minimal</span><span class="t">density=dense</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p3">/flow Site for "Voltage" — a creative-engineering studio.
+Pages: Home, Work, Team, Contact.
+structure=marquee archetype=brutalist-tech imagery=minimal motion=rich density=dense</pre>
+            <div class="actions"><span class="hintl">Raw grids, one signal color, zero rounding.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preset reveal">
+          <div class="preset__swatch sw-swiss"><span class="lab">swiss-grid</span></div>
+          <div class="preset__meta"><h3>Design journal</h3>
+            <div class="preset__tags"><span class="t">structure=editorial</span><span class="t">imagery=photo</span><span class="t">density=airy</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p4">/flow Site for "Grid &amp; Field" — a quarterly design journal.
+Pages: Home, Issues, About.
+structure=editorial archetype=swiss-grid imagery=photo motion=calm density=airy</pre>
+            <div class="actions"><span class="hintl">12-column grid, one accent, whitespace.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preset reveal">
+          <div class="preset__swatch sw-term"><span class="lab">retro-terminal</span></div>
+          <div class="preset__meta"><h3>Open-source log pipeline</h3>
+            <div class="preset__tags"><span class="t">structure=diagram</span><span class="t">imagery=illustration</span><span class="t">density=dense</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p5">/flow Marketing site for "Coldwire" — an open-source log pipeline.
+Pages: Home, Features, Docs.
+structure=diagram archetype=retro-terminal imagery=illustration motion=rich density=dense</pre>
+            <div class="actions"><span class="hintl">Phosphor mono, scanlines, HUD blocks.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="preset reveal">
+          <div class="preset__swatch sw-soft"><span class="lab">soft-organic</span></div>
+          <div class="preset__meta"><h3>Plant-care companion app</h3>
+            <div class="preset__tags"><span class="t">structure=numeral-rail</span><span class="t">imagery=photo</span><span class="t">density=airy</span></div>
+          </div>
+          <div class="preset__prompt">
+            <pre id="p6">/flow Landing page for "Bloom" — a plant-care companion app.
+Pages: Home, Features, Pricing.
+structure=numeral-rail archetype=soft-organic imagery=photo motion=calm density=airy</pre>
+            <div class="actions"><span class="hintl">Cream ground, organic shapes, warmth.</span>
+              <button class="copybtn magnetic" type="button" data-copy="#p6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="divider-row"><hr /></div>
+
+    <!-- VOCAB REFERENCE -->
+    <section class="page-section">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span>Reference</p>
+      <h2 class="section-title reveal" style="margin-top:16px;">The whole vocabulary.</h2>
+      <p class="section-lead reveal" style="margin-bottom:32px;">Every term is bound to knowledge in the bundled library. Mix them freely — or leave any axis out.</p>
+
+      <div class="vocab reveal">
+        <div class="vrow">
+          <h3><span class="k">structure=</span> — the page's spine</h3>
+          <div class="vdefs">
+            <div class="vdef"><span class="val">bento</span><span class="desc">A span-choreographed bento; every tile earns its cell with a drawn micro-visualization.</span></div>
+            <div class="vdef"><span class="val">poster</span><span class="desc">A sequence of full-viewport typographic posters — huge scale moments, inversion as punctuation.</span></div>
+            <div class="vdef"><span class="val">diagram</span><span class="desc">The core section IS a diagram: nodes in a grid with real SVG arrows drawn on scroll.</span></div>
+            <div class="vdef"><span class="val">editorial</span><span class="desc">A long-form spine under strict split discipline — never 50/50 twice, one full-bleed break.</span></div>
+            <div class="vdef"><span class="val">dwell</span><span class="desc">A pinned scroll-dwell sequence — a sticky stage over a tall track, lit by scroll progress.</span></div>
+            <div class="vdef"><span class="val">marquee</span><span class="desc">A kinetic outline-type marquee band divides sections at poster scale, whisper weight.</span></div>
+            <div class="vdef"><span class="val">numeral-rail</span><span class="desc">Steps ride an oversized outline-numeral rail dwelling beside their copy.</span></div>
+            <div class="vdef"><span class="val">demo-hero</span><span class="desc">The hero performs the product: a chrome-framed miniature runs a scripted loop.</span></div>
+          </div>
+        </div>
+        <div class="vrow">
+          <h3><span class="k">archetype=</span> — the whole art direction</h3>
+          <div class="vdefs">
+            <div class="vdef"><span class="val">engineer-grid</span><span class="desc">Flat paper + ink, hairlines instead of shadows, a machine-voice mono for labels, one prism accent.</span></div>
+            <div class="vdef"><span class="val">luxury-dark</span><span class="desc">Near-black ground, one metallic accent, serif display, letter-spaced caps, slow confident motion.</span></div>
+            <div class="vdef"><span class="val">brutalist-tech</span><span class="desc">Raw visible grids, extreme type-scale contrast, black/white + one signal color, zero rounding.</span></div>
+            <div class="vdef"><span class="val">swiss-grid</span><span class="desc">Strict 12-column grid, one saturated accent, grotesk sans, whitespace as the material.</span></div>
+            <div class="vdef"><span class="val">retro-terminal</span><span class="desc">Phosphor mono on near-black, scanline texture, terminal chrome, data-dense HUD blocks.</span></div>
+            <div class="vdef"><span class="val">editorial-serif</span><span class="desc">Magazine serif display + humanist sans, column rules, drop caps, warm paper, photography-led.</span></div>
+            <div class="vdef"><span class="val">soft-organic</span><span class="desc">Cream ground, rounded organic shapes, gentle tonal gradients in one hue, airy humane copy.</span></div>
+          </div>
+        </div>
+        <div class="grid-2" style="gap:12px;">
+          <div class="vrow">
+            <h3><span class="k">imagery=</span></h3>
+            <div class="vdefs" style="grid-template-columns:1fr;">
+              <div class="vdef"><span class="val">photo</span><span class="desc">Real licensed photography in the hero and key sections.</span></div>
+              <div class="vdef"><span class="val">illustration</span><span class="desc">CSS/SVG illustrations only — deliberate drawn visuals and diagrams.</span></div>
+              <div class="vdef"><span class="val">minimal</span><span class="desc">Typography-led — layout, type and color carry the design.</span></div>
+            </div>
+          </div>
+          <div class="vrow">
+            <h3><span class="k">motion=</span> · <span class="k">density=</span></h3>
+            <div class="vdefs" style="grid-template-columns:1fr;">
+              <div class="vdef"><span class="val">calm</span><span class="desc">Transform-only reveals, precise hovers, one quiet continuous system.</span></div>
+              <div class="vdef"><span class="val">rich</span><span class="desc">Scroll-driven reveals, a kinetic system, hover physics — everything eased.</span></div>
+              <div class="vdef"><span class="val">webgl</span><span class="desc">A WebGL hero/background moment plus smooth scrolling, with a static fallback.</span></div>
+              <div class="vdef"><span class="val">airy</span><span class="desc">Few ideas per viewport, oversized whitespace, one statement per section.</span></div>
+              <div class="vdef"><span class="val">dense</span><span class="desc">Packed information design — tight grids, data readouts, micro-labels.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code reveal" style="margin-top:26px;">
+        <div class="code__bar"><span class="lbl">template</span>
+          <button class="copybtn magnetic" type="button" data-copy="#tmpl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+        </div>
+        <pre id="tmpl">/flow Site for "&lt;NAME&gt;" — &lt;what it is, who for&gt;.
+Pages: &lt;3–5 pages&gt;.
+structure=bento archetype=swiss-grid imagery=photo motion=rich density=airy
+&lt;2–3 sentences of real content demands&gt;</pre>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <img class="mark mark--xl" src="assets/brand/loupe-mark-dark.svg" alt="" width="92" height="92" />
+      <h2 class="cta__title">Got a prompt?<br><span class="grad">Point Loupe at it.</span></h2>
+      <div class="cta__actions">
+        <a href="download.html" class="btn btn--prism btn--lg magnetic">Download for Windows</a>
+        <a href="index.html#loop" class="btn btn--ghost btn--lg magnetic">See the loop</a>
+      </div>
+      <p class="cta__foot">Bring your own keys — everything stays on your machine.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </div>
+    <p class="footer__line">The closed-loop web-design studio.</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="features.html">Features</a><a href="gallery.html">Prompt gallery</a><a href="download.html">Download</a><a href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/README.md" target="_blank" rel="noopener">README ↗</a><a href="https://github.com/winchxyz/loupe/issues" target="_blank" rel="noopener">Issues ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/LICENSE" target="_blank" rel="noopener">License ↗</a><a href="https://x.com/winchxyz" target="_blank" rel="noopener">X ↗</a>
+    </nav>
+    <p class="footer__copy">© 2026 Loupe · winchxyz · MIT-licensed · Windows 10/11 · Built live, verified on screen.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

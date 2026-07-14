@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Loupe for Windows — AI web-design studio</title>
+  <meta name="description" content="Download Loupe for Windows 10/11 — installer, portable zip, or build from source. Bring your own keys, local and private, open-source (MIT)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Download Loupe" />
+  <meta property="og:description" content="Windows installer, portable zip, or build from source. BYOK, local-only, MIT." />
+  <meta property="og:image" content="https://winchxyz.github.io/loupe-website/assets/img/loupe-hero.png" />
+  <meta property="og:url" content="https://winchxyz.github.io/loupe-website/download.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://winchxyz.github.io/loupe-website/download.html" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="icon" href="assets/brand/loupe-mark.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html#top" aria-label="Loupe home">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html#loop">The loop</a>
+      <a href="features.html">Features</a>
+      <a href="gallery.html">Prompt gallery</a>
+      <a href="download.html" class="is-current">Download</a>
+    </nav>
+    <a href="https://github.com/winchxyz/loupe/releases/latest" target="_blank" rel="noopener" class="btn btn--ghost nav__cta magnetic">Releases ↗</a>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <section class="page-hero">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>Download</p>
+      <h1 class="section-title">Get Loupe for <span class="grad">Windows.</span></h1>
+      <p class="section-lead"><b>Windows 10 / 11 (64-bit)</b> is the tested, supported platform. Loupe is bring-your-own-keys and local-only — it sends nothing to our servers. <a href="https://github.com/winchxyz/loupe/releases" target="_blank" rel="noopener">GitHub Releases</a> is the only official channel.</p>
+    </section>
+
+    <section class="page-section">
+      <h2 class="sec-title-sm reveal">Choose your download</h2>
+      <div class="dl-grid">
+        <article class="dl-card dl-card--rec reveal">
+          <span class="badge">Recommended</span>
+          <h3>Installer</h3>
+          <p class="fmt">Loupe-Setup-&lt;version&gt;.exe</p>
+          <p>For most people. Installs and adds a Start-menu shortcut, ready to launch. Grab a new release to upgrade.</p>
+          <a class="btn btn--prism magnetic" href="https://github.com/winchxyz/loupe/releases/latest" target="_blank" rel="noopener">Get the installer</a>
+        </article>
+        <article class="dl-card reveal">
+          <span class="badge">No install</span>
+          <h3>Portable</h3>
+          <p class="fmt">Loupe-&lt;version&gt;-win-x64.zip</p>
+          <p>No install, no admin rights. Unzip anywhere — a folder or a USB stick — and run <span class="mono">Loupe.exe</span>. Won't auto-update; re-download to upgrade.</p>
+          <a class="btn btn--ghost magnetic" href="https://github.com/winchxyz/loupe/releases/latest" target="_blank" rel="noopener">Get the portable zip</a>
+        </article>
+        <article class="dl-card reveal">
+          <span class="badge">For developers</span>
+          <h3>From source</h3>
+          <p class="fmt">git clone · npm start</p>
+          <p>Read and build the code yourself — the surest way to know exactly what you're running. Node.js 20+.</p>
+          <a class="btn btn--ghost magnetic" href="#from-source">Build instructions</a>
+        </article>
+      </div>
+
+      <div class="callout reveal" style="margin-top:20px;border-left-color:var(--line-2)">
+        <b style="color:var(--ink)">Heads-up on version.</b> Loupe is v0.1 — the first tagged release lands on the Releases page shortly. The buttons above always point at the <span class="mono">latest</span> release; an <span class="mono">npx</span> launcher (a signature-free channel) is planned right after v0.1. Manually-downloaded builds don't auto-update — grab a new release to upgrade.
+      </div>
+    </section>
+
+    <div class="divider-row"><hr /></div>
+
+    <section class="page-section">
+      <div class="grid-2">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow__dot"></span>First launch</p>
+          <h2 class="section-title" style="margin-top:16px;max-width:15ch;">“Windows protected your PC” is expected.</h2>
+          <p class="section-lead">Loupe is open-source and built by one person, so it isn't code-signed (certificates are expensive for an indie project). Because the binary is <b style="color:var(--ink)">unsigned</b>, Microsoft Defender SmartScreen shows a blue screen the first time you run a new version. It's <b style="color:var(--ink)">not</b> a virus alert — Windows just doesn't recognise the publisher yet.</p>
+        </div>
+        <div class="reveal stack-16">
+          <details class="note" open>
+            <summary>How to run it</summary>
+            <div class="note__body">
+              <ol><li>Click <b>More info</b></li><li>Click <b>Run anyway</b></li></ol>
+              <p style="margin-top:12px;">If <b>Run anyway</b> isn't shown: right-click the file → <b>Properties</b> → tick <b>Unblock</b> at the bottom → <b>OK</b>, then open it again. You'll see this once per version.</p>
+            </div>
+          </details>
+          <details class="note">
+            <summary>Verify your download</summary>
+            <div class="note__body">
+              <p>Every release includes a <span class="mono">SHA256SUMS.txt</span>. Compare the hash of your file against it:</p>
+              <div class="code" style="margin-top:12px;">
+                <div class="code__bar"><span class="lbl">PowerShell</span>
+                  <button class="copybtn magnetic" type="button" data-copy="@self" data-copy-text="Get-FileHash .\Loupe-Setup-<version>.exe -Algorithm SHA256"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+                </div>
+                <pre>Get-FileHash .\Loupe-Setup-&lt;version&gt;.exe -Algorithm SHA256</pre>
+              </div>
+              <p style="margin-top:12px;">A checksum confirms the file downloaded intact — it doesn't prove <em>who</em> built it (that needs code signing, which Loupe doesn't have yet). For that, build from source.</p>
+            </div>
+          </details>
+          <details class="note">
+            <summary>Is this safe?</summary>
+            <div class="note__body">
+              <ul>
+                <li>Loupe's code is open source (<a href="https://github.com/winchxyz/loupe/blob/main/LICENSE" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">MIT</a>) — the ultimate check is building it yourself.</li>
+                <li>Your keys stay local: Loupe talks to the network only for the providers you configure (plus Poly Haven / Unsplash / Pexels asset fetches). No telemetry, nothing proxied.</li>
+                <li>Loupe <em>drives</em> the proprietary Claude Code CLI, but does not redistribute it — you install and sign into it yourself.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-row"><hr /></div>
+
+    <section class="page-section">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span>First run</p>
+      <h2 class="section-title reveal" style="margin-top:16px;">Keys, and what each unlocks.</h2>
+      <p class="section-lead reveal" style="margin-bottom:32px;">Loupe is bring-your-own-keys. Everything is stored locally in your user profile and sent only to the matching provider — never to us.</p>
+      <div class="table-scroll reveal">
+        <table class="ktable">
+          <thead><tr><th>You have</th><th>What you get</th></tr></thead>
+          <tbody>
+            <tr><td>Claude Code signed in</td><td>Everything core, no setup — Loupe picks up your existing sign-in.</td></tr>
+            <tr><td>An Anthropic API key</td><td>Same as above, billed per token instead of via your subscription.</td></tr>
+            <tr><td class="k">+ Unsplash / Pexels</td><td>Real photography auto-filled into builds. Free, and recommended.</td></tr>
+            <tr><td class="k">+ OpenRouter / OpenAI / Gemini / xAI</td><td>Alternative build engines, a cross-vendor QA judge, and image-generation models.</td></tr>
+            <tr><td class="k">+ Codex / Grok / Copilot / MiMo</td><td>Your existing subscription CLIs as build engines — no extra API cost.</td></tr>
+            <tr><td>Nothing at all</td><td>The app opens and everything is inspectable, but a build turn will ask you to add Claude auth first.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="divider-row"><hr /></div>
+
+    <section class="page-section" id="from-source">
+      <div class="grid-2">
+        <div class="reveal">
+          <p class="eyebrow"><span class="eyebrow__dot"></span>From source</p>
+          <h2 class="section-title" style="margin-top:16px;max-width:12ch;">Build it yourself.</h2>
+          <p class="section-lead">You'll need <b style="color:var(--ink)">Node.js 20 or newer</b>. Loupe is a cross-platform Electron app — it may build and run on macOS/Linux too, but those aren't tested and no binaries ship for them yet.</p>
+          <div class="hero__actions" style="margin-top:24px;">
+            <a class="btn btn--ghost magnetic" href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener">View the repository ↗</a>
+          </div>
+        </div>
+        <div class="reveal stack-16">
+          <div class="code">
+            <div class="code__bar"><span class="lbl">bash</span>
+              <button class="copybtn magnetic" type="button" data-copy="#src-clone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+            <pre id="src-clone" data-raw="git clone https://github.com/winchxyz/loupe.git
+cd loupe/app
+npm install
+npm start">git clone https://github.com/winchxyz/loupe.git
+cd loupe/app
+npm install
+npm start          <span class="cm"># launches the Electron app</span></pre>
+          </div>
+          <div class="code">
+            <div class="code__bar"><span class="lbl">smoke test</span>
+              <button class="copybtn magnetic" type="button" data-copy="@self" data-copy-text="npm run smoke"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><span class="copytxt">Copy</span></button>
+            </div>
+            <pre>npm run smoke      <span class="cm"># boots the real app, checks the preview renders</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <img class="mark mark--xl" src="assets/brand/loupe-mark-dark.svg" alt="" width="92" height="92" />
+      <h2 class="cta__title">Point at your next site.<br><span class="grad">Watch it change.</span></h2>
+      <div class="cta__actions">
+        <a href="https://github.com/winchxyz/loupe/releases/latest" target="_blank" rel="noopener" class="btn btn--prism btn--lg magnetic">Download for Windows</a>
+        <a href="gallery.html" class="btn btn--ghost btn--lg magnetic">Explore the prompt gallery</a>
+      </div>
+      <p class="cta__foot">Windows 10 / 11 · unsigned · bring your own keys · MIT.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </div>
+    <p class="footer__line">The closed-loop web-design studio.</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="features.html">Features</a><a href="gallery.html">Prompt gallery</a><a href="download.html">Download</a><a href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/README.md" target="_blank" rel="noopener">README ↗</a><a href="https://github.com/winchxyz/loupe/issues" target="_blank" rel="noopener">Issues ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/LICENSE" target="_blank" rel="noopener">License ↗</a><a href="https://x.com/winchxyz" target="_blank" rel="noopener">X ↗</a>
+    </nav>
+    <p class="footer__copy">© 2026 Loupe · winchxyz · MIT-licensed · Windows 10/11 · Built live, verified on screen.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

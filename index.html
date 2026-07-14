@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loupe — AI web-design studio · build, refine, verify</title>
+  <meta name="description" content="Loupe is a Windows desktop AI web-design studio: agents build sites, you refine them at Figma grade on the live page, and every visual edit is verified against the real render. Bring your own keys, local and private, open-source." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Loupe · AI builds it. You perfect it. Live, and verified." />
+  <meta property="og:description" content="A desktop AI web-design studio. Agents build sites; you refine on the live page; every edit is verified against the real render. BYOK, local, MIT." />
+  <meta property="og:image" content="https://winchxyz.github.io/loupe-website/assets/img/loupe-hero.png" />
+  <meta property="og:url" content="https://winchxyz.github.io/loupe-website/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://winchxyz.github.io/loupe-website/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#fafafa" />
+  <link rel="icon" href="assets/brand/loupe-mark.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Loupe","applicationCategory":"DesignApplication","operatingSystem":"Windows 10, Windows 11","description":"A desktop AI web-design studio: AI agents build real websites, you refine them at Figma grade on the live page, and every visual edit is verified against the real render. Bring your own keys, local and private, open-source (MIT).","url":"https://winchxyz.github.io/loupe-website/","softwareVersion":"0.1","license":"https://github.com/winchxyz/loupe/blob/main/LICENSE","downloadUrl":"https://github.com/winchxyz/loupe/releases/latest","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"winchxyz"}}
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+  <!-- engine brand logos (monochrome, currentColor) — Simple Icons / Lobe Icons -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="logo-claude" viewBox="0 0 24 24"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></symbol>
+    <symbol id="logo-openai" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.205 8.658v-2.26c0-.19.072-.333.238-.428l4.543-2.616c.619-.357 1.356-.523 2.117-.523 2.854 0 4.662 2.212 4.662 4.566 0 .167 0 .357-.024.547l-4.71-2.759a.797.797 0 00-.856 0l-5.97 3.473zm10.609 8.8V12.06c0-.333-.143-.57-.429-.737l-5.97-3.473 1.95-1.118a.433.433 0 01.476 0l4.543 2.617c1.309.76 2.189 2.378 2.189 3.948 0 1.808-1.07 3.473-2.76 4.163zM7.802 12.703l-1.95-1.142c-.167-.095-.239-.238-.239-.428V5.899c0-2.545 1.95-4.472 4.591-4.472 1 0 1.927.333 2.712.928L8.23 5.067c-.285.166-.428.404-.428.737v6.898zM12 15.128l-2.795-1.57v-3.33L12 8.658l2.795 1.57v3.33L12 15.128zm1.796 7.23c-1 0-1.927-.332-2.712-.927l4.686-2.712c.285-.166.428-.404.428-.737v-6.898l1.974 1.142c.167.095.238.238.238.428v5.233c0 2.545-1.974 4.472-4.614 4.472zm-5.637-5.303l-4.544-2.617c-1.308-.761-2.188-2.378-2.188-3.948A4.482 4.482 0 014.21 6.327v5.423c0 .333.143.571.428.738l5.947 3.449-1.95 1.118a.432.432 0 01-.476 0zm-.262 3.9c-2.688 0-4.662-2.021-4.662-4.519 0-.19.024-.38.047-.57l4.686 2.71c.286.167.571.167.856 0l5.97-3.448v2.26c0 .19-.07.333-.237.428l-4.543 2.616c-.619.357-1.356.523-2.117.523zm5.899 2.83a5.947 5.947 0 005.827-4.756C22.287 18.339 24 15.84 24 13.296c0-1.665-.713-3.282-1.998-4.448.119-.5.19-.999.19-1.498 0-3.401-2.759-5.947-5.946-5.947-.642 0-1.26.095-1.88.31A5.962 5.962 0 0010.205 0a5.947 5.947 0 00-5.827 4.757C1.713 5.447 0 7.945 0 10.49c0 1.666.713 3.283 1.998 4.448-.119.5-.19 1-.19 1.499 0 3.401 2.759 5.946 5.946 5.946.642 0 1.26-.095 1.88-.309a5.96 5.96 0 004.162 1.713z"/></symbol>
+    <symbol id="logo-gemini" viewBox="0 0 24 24"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></symbol>
+    <symbol id="logo-grok" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.27 15.29l7.978-5.897c.391-.29.95-.177 1.137.272.98 2.369.542 5.215-1.41 7.169-1.951 1.954-4.667 2.382-7.149 1.406l-2.711 1.257c3.889 2.661 8.611 2.003 11.562-.953 2.341-2.344 3.066-5.539 2.388-8.42l.006.007c-.983-4.232.242-5.924 2.75-9.383.06-.082.12-.164.179-.248l-3.301 3.305v-.01L9.267 15.292M7.623 16.723c-2.792-2.67-2.31-6.801.071-9.184 1.761-1.763 4.647-2.483 7.166-1.425l2.705-1.25a7.808 7.808 0 00-1.829-1A8.975 8.975 0 005.984 5.83c-2.533 2.536-3.33 6.436-1.962 9.764 1.022 2.487-.653 4.246-2.34 6.022-.599.63-1.199 1.259-1.682 1.925l7.62-6.815"/></symbol>
+    <symbol id="logo-xai" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.469 8.776L16.512 23h-4.464L2.005 8.776H6.47zm-.004 7.9l2.233 3.164L6.467 23H2l4.465-6.324zM22 2.582V23h-3.659V7.764L22 2.582zM22 1l-9.952 14.095-2.233-3.163L17.533 1H22z"/></symbol>
+    <symbol id="logo-copilot" viewBox="0 0 24 24"><path d="M23.922 16.997C23.061 18.492 18.063 22.02 12 22.02 5.937 22.02.939 18.492.078 16.997A.641.641 0 0 1 0 16.741v-2.869a.883.883 0 0 1 .053-.22c.372-.935 1.347-2.292 2.605-2.656.167-.429.414-1.055.644-1.517a10.098 10.098 0 0 1-.052-1.086c0-1.331.282-2.499 1.132-3.368.397-.406.89-.717 1.474-.952C7.255 2.937 9.248 1.98 11.978 1.98c2.731 0 4.767.957 6.166 2.093.584.235 1.077.546 1.474.952.85.869 1.132 2.037 1.132 3.368 0 .368-.014.733-.052 1.086.23.462.477 1.088.644 1.517 1.258.364 2.233 1.721 2.605 2.656a.841.841 0 0 1 .053.22v2.869a.641.641 0 0 1-.078.256Zm-11.75-5.992h-.344a4.359 4.359 0 0 1-.355.508c-.77.947-1.918 1.492-3.508 1.492-1.725 0-2.989-.359-3.782-1.259a2.137 2.137 0 0 1-.085-.104L4 11.746v6.585c1.435.779 4.514 2.179 8 2.179 3.486 0 6.565-1.4 8-2.179v-6.585l-.098-.104s-.033.045-.085.104c-.793.9-2.057 1.259-3.782 1.259-1.59 0-2.738-.545-3.508-1.492a4.359 4.359 0 0 1-.355-.508Zm2.328 3.25c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm-5 0c.549 0 1 .451 1 1v2c0 .549-.451 1-1 1-.549 0-1-.451-1-1v-2c0-.549.451-1 1-1Zm3.313-6.185c.136 1.057.403 1.913.878 2.497.442.544 1.134.938 2.344.938 1.573 0 2.292-.337 2.657-.751.384-.435.558-1.15.558-2.361 0-1.14-.243-1.847-.705-2.319-.477-.488-1.319-.862-2.824-1.025-1.487-.161-2.192.138-2.533.529-.269.307-.437.808-.438 1.578v.021c0 .265.021.562.063.893Zm-1.626 0c.042-.331.063-.628.063-.894v-.02c-.001-.77-.169-1.271-.438-1.578-.341-.391-1.046-.69-2.533-.529-1.505.163-2.347.537-2.824 1.025-.462.472-.705 1.179-.705 2.319 0 1.211.175 1.926.558 2.361.365.414 1.084.751 2.657.751 1.21 0 1.902-.394 2.344-.938.475-.584.742-1.44.878-2.497Z"/></symbol>
+    <symbol id="logo-openrouter" viewBox="0 0 24 24"><path d="M16.778 1.844v1.919q-.569-.026-1.138-.032-.708-.008-1.415.037c-1.93.126-4.023.728-6.149 2.237-2.911 2.066-2.731 1.95-4.14 2.75-.396.223-1.342.574-2.185.798-.841.225-1.753.333-1.751.333v4.229s.768.108 1.61.333c.842.224 1.789.575 2.185.799 1.41.798 1.228.683 4.14 2.75 2.126 1.509 4.22 2.11 6.148 2.236.88.058 1.716.041 2.555.005v1.918l7.222-4.168-7.222-4.17v2.176c-.86.038-1.611.065-2.278.021-1.364-.09-2.417-.357-3.979-1.465-2.244-1.593-2.866-2.027-3.68-2.508.889-.518 1.449-.906 3.822-2.59 1.56-1.109 2.614-1.377 3.978-1.466.667-.044 1.418-.017 2.278.02v2.176L24 6.014Z"/></symbol>
+    <symbol id="logo-mimo" viewBox="0 0 24 24"><path d="M12 0C8.016 0 4.756.255 2.493 2.516.23 4.776 0 8.033 0 12.012c0 3.98.23 7.235 2.494 9.497C4.757 23.77 8.017 24 12 24c3.983 0 7.243-.23 9.506-2.491C23.77 19.247 24 15.99 24 12.012c0-3.984-.233-7.243-2.502-9.504C19.234.252 15.978 0 12 0zM4.906 7.405h5.624c1.47 0 3.007.068 3.764.827.746.746.827 2.233.83 3.676v4.54a.15.15 0 0 1-.152.147h-1.947a.15.15 0 0 1-.152-.148V11.83c-.002-.806-.048-1.634-.464-2.051-.358-.36-1.026-.441-1.72-.458H7.158a.15.15 0 0 0-.151.147v6.98a.15.15 0 0 1-.152.148H4.906a.15.15 0 0 1-.15-.148V7.554a.15.15 0 0 1 .15-.149zm12.131 0h1.949a.15.15 0 0 1 .15.15v8.892a.15.15 0 0 1-.15.148h-1.949a.15.15 0 0 1-.151-.148V7.554a.15.15 0 0 1 .151-.149zM8.92 10.948h2.046c.083 0 .15.066.15.147v5.352a.15.15 0 0 1-.15.148H8.92a.15.15 0 0 1-.152-.148v-5.352a.15.15 0 0 1 .152-.147Z"/></symbol>
+  </svg>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html#top" aria-label="Loupe home">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html#loop">The loop</a>
+      <a href="features.html">Features</a>
+      <a href="gallery.html">Prompt gallery</a>
+      <a href="download.html">Download</a>
+    </nav>
+    <a href="download.html" class="btn btn--ghost nav__cta magnetic">Get Loupe</a>
+    <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO (minimal + video) ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__inner hero__inner--video">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot"></span>AI web-design studio · Build → Refine → Verify</p>
+          <h1 class="hero__title">
+            <span class="line">AI builds it. You perfect it.</span>
+            <span class="line"><em>Live</em>, and <em class="verified-word">verified.</em></span>
+          </h1>
+          <p class="hero__sub">Agents build sites. You refine them on the live page — every edit verified against the real render.</p>
+          <div class="hero__actions">
+            <a href="download.html" class="btn btn--prism magnetic">Download for Windows</a>
+            <a href="features.html" class="btn btn--ghost magnetic">See what it does →</a>
+          </div>
+          <p class="hero__trust">Bring your own keys · local &amp; private · Windows 10/11 · open-source (MIT)</p>
+        </div>
+
+        <div class="herovid reveal" data-d="2">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/video/loupe-demo-poster.png">
+            <source src="assets/video/loupe-demo.mp4" type="video/mp4" />
+          </video>
+          <span class="herovid__badge"><span class="live"></span>the real app</span>
+        </div>
+        <p class="herovid__cap">Describe a site → agents build it → refine it on the canvas, or by pointing at an element. Every change verified on screen.</p>
+      </div>
+    </section>
+
+    <!-- ============ THE LOOP (the differentiator, clean) ============ -->
+    <section class="loop" id="loop">
+      <div class="loop__head">
+        <p class="eyebrow"><span class="eyebrow__dot"></span>The killer feature</p>
+        <h2 class="section-title">The loop that <span class="grad">doesn’t lie.</span></h2>
+        <p class="section-lead">Point at any element and change it — by hand or by asking. Loupe checks the result against the real render before it says done. <b>“Done” means done.</b></p>
+      </div>
+
+      <div class="steps3">
+        <article class="step3 reveal">
+          <span class="step3__n">01</span>
+          <div class="step3__b">
+            <h3>Pick</h3>
+            <p>Point at any element on the live page — or sketch over it with the Draw tool.</p>
+          </div>
+          <span class="step3__chip"><i class="sel"></i>div.card</span>
+        </article>
+        <span class="step3__arr" aria-hidden="true">→</span>
+        <article class="step3 reveal" data-d="1">
+          <span class="step3__n">02</span>
+          <div class="step3__b">
+            <h3>Edit</h3>
+            <p>By hand, or ask the agent in plain words. It edits the source files.</p>
+          </div>
+          <span class="step3__chip mono">#0a0b0e&nbsp;→&nbsp;#fff</span>
+        </article>
+        <span class="step3__arr" aria-hidden="true">→</span>
+        <article class="step3 reveal" data-d="2">
+          <span class="step3__n">03</span>
+          <div class="step3__b">
+            <h3>Verify</h3>
+            <p>An automatic before/after pixel-diff, proven on screen.</p>
+          </div>
+          <span class="step3__chip ok">✓&nbsp;before / after matched</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ ENGINES — works with your subscription ============ -->
+    <section class="engines-strip" id="engines">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>Bring your own engine</p>
+      <h2 class="es__title">Runs on the AI you <span class="grad">already pay for.</span></h2>
+      <p class="es__sub">Drive an AI subscription you already have — or your own API keys. No extra bill from us.</p>
+      <div class="es__logos">
+        <a class="es__logo" style="--brand:#D97757" href="https://claude.ai" target="_blank" rel="noopener"><svg class="elogo" aria-hidden="true"><use href="#logo-claude"/></svg>Claude</a>
+        <a class="es__logo" style="--brand:#10A37F" href="https://chatgpt.com" target="_blank" rel="noopener"><svg class="elogo" aria-hidden="true"><use href="#logo-openai"/></svg>ChatGPT</a>
+        <a class="es__logo" style="--brand:#111827" href="https://grok.com" target="_blank" rel="noopener"><svg class="elogo" aria-hidden="true"><use href="#logo-grok"/></svg>Grok</a>
+        <a class="es__logo" style="--brand:#0969DA" href="https://github.com/features/copilot" target="_blank" rel="noopener"><svg class="elogo" aria-hidden="true"><use href="#logo-copilot"/></svg>Copilot</a>
+      </div>
+      <p class="es__note">Plus your own API keys — <span class="es__api"><svg class="elogo elogo--sm" aria-hidden="true"><use href="#logo-openai"/></svg>OpenAI</span> <span class="es__api"><svg class="elogo elogo--sm" aria-hidden="true"><use href="#logo-gemini"/></svg>Gemini</span> <span class="es__api"><svg class="elogo elogo--sm" aria-hidden="true"><use href="#logo-xai"/></svg>xAI</span> <span class="es__api"><svg class="elogo elogo--sm" aria-hidden="true"><use href="#logo-openrouter"/></svg>OpenRouter</span> · <a href="features.html#engines">see how engines work →</a></p>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="cta" id="cta">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <img class="mark mark--xl" src="assets/brand/loupe-mark-dark.svg" alt="" width="92" height="92" />
+      <h2 class="cta__title">AI builds it.<br>You perfect it.<br><em>Live, and</em> <span class="grad">verified.</span></h2>
+      <div class="cta__actions">
+        <a href="download.html" class="btn btn--prism btn--lg magnetic">Download for Windows</a>
+        <a href="features.html" class="btn btn--ghost btn--lg magnetic">See everything it does</a>
+      </div>
+      <p class="cta__foot">Early, independent, built in the open. Your keys and your work never leave your machine.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </div>
+    <p class="footer__line">The closed-loop web-design studio.</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="features.html">Features</a><a href="gallery.html">Prompt gallery</a><a href="download.html">Download</a><a href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/README.md" target="_blank" rel="noopener">README ↗</a><a href="https://github.com/winchxyz/loupe/issues" target="_blank" rel="noopener">Issues ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/LICENSE" target="_blank" rel="noopener">License ↗</a><a href="https://x.com/winchxyz" target="_blank" rel="noopener">X ↗</a>
+    </nav>
+    <p class="footer__copy">© 2026 Loupe · winchxyz · MIT-licensed · Windows 10/11 · Built live, verified on screen.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
