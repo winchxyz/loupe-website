@@ -3,11 +3,11 @@
 Loupe is an open-source, local Windows AI website builder and web-design studio: AI agents build real websites and you refine them at Figma grade directly on the live page, with every visual edit verified against the real browser render. Bring your own API keys or the AI subscriptions you already pay for. MIT-licensed.
 
 ## Links
-- Website: https://winchxyz.github.io/loupe-website/
-- Features: https://winchxyz.github.io/loupe-website/features.html
-- Prompt gallery: https://winchxyz.github.io/loupe-website/gallery.html
-- Download (Windows): https://winchxyz.github.io/loupe-website/download.html
-- FAQ: https://winchxyz.github.io/loupe-website/faq.html
+- Website: https://tryloupe.app/
+- Features: https://tryloupe.app/features.html
+- Prompt gallery: https://tryloupe.app/gallery.html
+- Download (Windows): https://tryloupe.app/download.html
+- FAQ: https://tryloupe.app/faq.html
 - Source & README: https://github.com/winchxyz/loupe
 - Releases: https://github.com/winchxyz/loupe/releases/latest
 - License: MIT (https://opensource.org/licenses/MIT)

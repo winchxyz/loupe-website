@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://winchxyz.github.io/loupe-website/sitemap.xml
+Sitemap: https://tryloupe.app/sitemap.xml
