@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Primary meta -->
+  <title>FAQ — Loupe · what it is, BYOK, platforms, alternatives</title>
+  <meta name="description" content="Answers about Loupe, the open-source local Windows AI website builder — what it is, BYOK keys, platforms, and how it compares to Onlook, v0 and others.">
+  <link rel="canonical" href="https://winchxyz.github.io/loupe-website/faq.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#fafafa">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Loupe">
+  <meta property="og:title" content="Loupe — FAQ">
+  <meta property="og:description" content="Answers about Loupe, the open-source local Windows AI website builder — what it is, BYOK keys, platforms, and how it compares to Onlook, v0 and others.">
+  <meta property="og:url" content="https://winchxyz.github.io/loupe-website/faq.html">
+  <meta property="og:image" content="https://winchxyz.github.io/loupe-website/assets/img/loupe-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Loupe — AI builds a website; you refine it on the live render, verified.">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@winchxyz">
+  <meta name="twitter:creator" content="@winchxyz">
+  <meta name="twitter:title" content="Loupe — FAQ">
+  <meta name="twitter:description" content="Answers about Loupe, the open-source local Windows AI website builder — what it is, BYOK keys, platforms, and how it compares to Onlook, v0 and others.">
+  <meta name="twitter:image" content="https://winchxyz.github.io/loupe-website/assets/img/loupe-social.png">
+  <link rel="icon" href="assets/brand/loupe-mark.svg" type="image/svg+xml" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Loupe?","acceptedAnswer":{"@type":"Answer","text":"Loupe is an open-source, local Windows desktop AI website builder and web-design studio. AI agents build a real website, then you refine it at Figma grade directly on the live page — point at any element and ask, or edit by hand — and every visual edit is verified against the real browser render before it's considered done. It runs on your own API keys or existing AI subscriptions. MIT-licensed."}},{"@type":"Question","name":"Is Loupe an AI website builder?","acceptedAnswer":{"@type":"Answer","text":"Yes — Loupe is an open-source AI website builder, with a difference: instead of only generating a site in the cloud, AI agents build it locally and you then refine it at Figma grade directly on the live page, with each edit verified against the real render. It's a local, build-and-refine AI web-design tool for Windows that runs on your own API keys or existing AI subscriptions."}},{"@type":"Question","name":"Is Loupe free and open source?","acceptedAnswer":{"@type":"Answer","text":"Yes. Loupe is MIT-licensed and fully open source at github.com/winchxyz/loupe. There's no paid tier and nothing to upsell — you can read every line, build it from source, and run it entirely on your own machine. It's an early (v0.1), solo-built project maintained in the open."}},{"@type":"Question","name":"What platforms does Loupe run on?","acceptedAnswer":{"@type":"Answer","text":"Loupe is a Windows 10/11 (64-bit) desktop app — the tested, supported platform. It's built with Electron, so building from source may run on macOS/Linux, but those aren't officially tested or shipped yet. Windows binaries (installer or portable) are on the GitHub releases page."}},{"@type":"Question","name":"Does Loupe use my own API key or subscription (BYOK)?","acceptedAnswer":{"@type":"Answer","text":"Yes — Loupe is bring-your-own-key. It runs on the Claude API, your own OpenRouter/OpenAI/Gemini/xAI keys, or the CLI subscriptions you already pay for (Claude Code, Codex, Grok, Copilot) as build engines. Keys are stored locally and sent only to the matching provider — nothing routes through a server. No per-seat cloud markup."}},{"@type":"Question","name":"How is Loupe different from Onlook?","acceptedAnswer":{"@type":"Answer","text":"Onlook is an open-source visual editor that needs an existing React/Next+Tailwind codebase and leans on a cloud version. Loupe is a local desktop studio that builds a site for you from a prompt and centers a verified closed loop — every AI edit is checked against the real browser render. Pick Onlook if you're on Mac/web editing an existing React app; pick Loupe if you want a local, Windows, build-and-refine loop on your own keys."}},{"@type":"Question","name":"How is Loupe different from v0, Bolt, or Lovable?","acceptedAnswer":{"@type":"Answer","text":"v0, Bolt, and Lovable are cloud, chat-first builders — great at the first draft but harder for fine visual control, and your code lives on their platform with per-seat/token pricing. Loupe runs locally on your own keys, gives you Figma-grade hand control directly on the live render, and verifies each edit against the real browser. Choose them for instant cloud deploy; choose Loupe for local, private, hands-on refinement."}},{"@type":"Question","name":"What does \"verified against the real render\" mean?","acceptedAnswer":{"@type":"Answer","text":"Most AI web tools edit code blind and declare \"done\" without checking. Loupe reads the actual rendered DOM and geometry from the live page and takes a before/after pixel diff after each visual edit — if nothing actually changed on screen, it re-feeds the real render and tries again. \"Done\" means the render is genuinely correct, not assumed."}},{"@type":"Question","name":"Can I edit an AI-built site by hand, like Figma?","acceptedAnswer":{"@type":"Answer","text":"Yes. Loupe has a Figma-grade canvas on the live site: select, move, resize, rotate, snap, align, auto-layout, and edit text and style by hand, all persisted as clean responsive CSS with one undo/redo across both AI and manual edits. You can also hand it back to the AI to assemble or refine what you did."}}]}
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas class="dotfield" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__ring"></span></div>
+
+<header class="nav" id="nav">
+    <a class="brand" href="index.html#top" aria-label="Loupe home">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="index.html#loop">The loop</a>
+      <a href="features.html">Features</a>
+      <a href="gallery.html">Prompt gallery</a>
+      <a href="download.html">Download</a>
+    </nav>
+    <div class="nav__right">
+      <a class="nav__star" href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener" aria-label="Star Loupe on GitHub"><svg class="ghmark" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.37.5 0 5.78 0 12.29c0 5.2 3.44 9.6 8.2 11.16.6.1.82-.25.82-.56v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.36-1.33-1.72-1.33-1.72-1.09-.73.08-.72.08-.72 1.2.08 1.83 1.22 1.83 1.22 1.07 1.8 2.8 1.28 3.49.98.1-.76.42-1.28.76-1.57-2.67-.3-5.47-1.31-5.47-5.83 0-1.29.47-2.34 1.24-3.17-.13-.3-.54-1.52.11-3.18 0 0 1-.32 3.3 1.21a11.5 11.5 0 016 0c2.28-1.53 3.29-1.21 3.29-1.21.65 1.66.24 2.88.12 3.18.77.83 1.23 1.88 1.23 3.17 0 4.53-2.8 5.53-5.48 5.82.43.37.81 1.1.81 2.22v3.29c0 .32.22.68.83.56A12.02 12.02 0 0024 12.29C24 5.78 18.63.5 12 .5z"/></svg><span class="nav__star-t">Star on GitHub</span><span class="nav__star-x" aria-hidden="true">★</span></a>
+      <a href="download.html" class="btn btn--ghost nav__cta magnetic">Get Loupe</a>
+      <button class="nav__burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="page-hero">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>FAQ</p>
+      <h1 class="section-title">Questions, <span class="grad">answered.</span></h1>
+      <p class="section-lead">Loupe is an open-source, local Windows AI website builder and web-design studio: AI agents build real websites and you refine them at Figma grade directly on the live page, with every visual edit verified against the real browser render. Bring your own API keys or the AI subscriptions you already pay for. MIT-licensed.</p>
+    </section>
+
+    <section class="page-section faq" id="faq" aria-label="Frequently asked questions">
+      <div class="faq__item reveal">
+        <h2 class="faq__q">What is Loupe?</h2>
+        <p class="faq__a">Loupe is an open-source, local Windows desktop AI website builder and web-design studio. AI agents build a real website, then you refine it at Figma grade directly on the live page — point at any element and ask, or edit by hand — and every visual edit is verified against the real browser render before it's considered done. It runs on your own API keys or existing AI subscriptions. MIT-licensed.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">Is Loupe an AI website builder?</h2>
+        <p class="faq__a">Yes — Loupe is an open-source AI website builder, with a difference: instead of only generating a site in the cloud, AI agents build it locally and you then refine it at Figma grade directly on the live page, with each edit verified against the real render. It's a local, build-and-refine AI web-design tool for Windows that runs on your own API keys or existing AI subscriptions.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">Is Loupe free and open source?</h2>
+        <p class="faq__a">Yes. Loupe is MIT-licensed and fully open source at github.com/winchxyz/loupe. There's no paid tier and nothing to upsell — you can read every line, build it from source, and run it entirely on your own machine. It's an early (v0.1), solo-built project maintained in the open.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">What platforms does Loupe run on?</h2>
+        <p class="faq__a">Loupe is a Windows 10/11 (64-bit) desktop app — the tested, supported platform. It's built with Electron, so building from source may run on macOS/Linux, but those aren't officially tested or shipped yet. Windows binaries (installer or portable) are on the GitHub releases page.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">Does Loupe use my own API key or subscription (BYOK)?</h2>
+        <p class="faq__a">Yes — Loupe is bring-your-own-key. It runs on the Claude API, your own OpenRouter/OpenAI/Gemini/xAI keys, or the CLI subscriptions you already pay for (Claude Code, Codex, Grok, Copilot) as build engines. Keys are stored locally and sent only to the matching provider — nothing routes through a server. No per-seat cloud markup.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">How is Loupe different from Onlook?</h2>
+        <p class="faq__a">Onlook is an open-source visual editor that needs an existing React/Next+Tailwind codebase and leans on a cloud version. Loupe is a local desktop studio that builds a site for you from a prompt and centers a verified closed loop — every AI edit is checked against the real browser render. Pick Onlook if you're on Mac/web editing an existing React app; pick Loupe if you want a local, Windows, build-and-refine loop on your own keys.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">How is Loupe different from v0, Bolt, or Lovable?</h2>
+        <p class="faq__a">v0, Bolt, and Lovable are cloud, chat-first builders — great at the first draft but harder for fine visual control, and your code lives on their platform with per-seat/token pricing. Loupe runs locally on your own keys, gives you Figma-grade hand control directly on the live render, and verifies each edit against the real browser. Choose them for instant cloud deploy; choose Loupe for local, private, hands-on refinement.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">What does "verified against the real render" mean?</h2>
+        <p class="faq__a">Most AI web tools edit code blind and declare "done" without checking. Loupe reads the actual rendered DOM and geometry from the live page and takes a before/after pixel diff after each visual edit — if nothing actually changed on screen, it re-feeds the real render and tries again. "Done" means the render is genuinely correct, not assumed.</p>
+      </div>
+      <div class="faq__item reveal">
+        <h2 class="faq__q">Can I edit an AI-built site by hand, like Figma?</h2>
+        <p class="faq__a">Yes. Loupe has a Figma-grade canvas on the live site: select, move, resize, rotate, snap, align, auto-layout, and edit text and style by hand, all persisted as clean responsive CSS with one undo/redo across both AI and manual edits. You can also hand it back to the AI to assemble or refine what you did.</p>
+      </div>
+    </section>
+
+    <section class="cta" id="cta">
+      <div class="cta__glow" aria-hidden="true"></div>
+      <img class="mark mark--xl" src="assets/brand/loupe-mark-dark.svg" alt="" width="92" height="92" />
+      <h2 class="cta__title">Build one, then <span class="grad">perfect</span> it.</h2>
+      <div class="cta__actions">
+        <a href="download.html" class="btn btn--prism btn--lg magnetic">Download for Windows</a>
+        <a href="features.html" class="btn btn--ghost btn--lg magnetic">See the features</a>
+      </div>
+      <p class="cta__foot">Windows 10 / 11 · bring your own keys · local &amp; private · MIT.</p>
+    </section>
+  </main>
+
+<footer class="footer">
+    <div class="footer__brand">
+      <img class="mark" src="assets/brand/loupe-mark-dark.svg" alt="" width="30" height="30" />
+      <span class="wordmark">Loupe</span>
+    </div>
+    <p class="footer__line">The closed-loop web-design studio.</p>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="features.html">Features</a><a href="gallery.html">Prompt gallery</a><a href="download.html">Download</a><a href="faq.html">FAQ</a><a href="https://github.com/winchxyz/loupe" target="_blank" rel="noopener">GitHub ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/README.md" target="_blank" rel="noopener">README ↗</a><a href="https://github.com/winchxyz/loupe/issues" target="_blank" rel="noopener">Issues ↗</a><a href="https://github.com/winchxyz/loupe/blob/main/LICENSE" target="_blank" rel="noopener">License ↗</a><a href="https://x.com/winchxyz" target="_blank" rel="noopener">X ↗</a>
+    </nav>
+    <p class="footer__copy">© 2026 Loupe · winchxyz · MIT-licensed · Windows 10/11 · Built live, verified on screen.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
