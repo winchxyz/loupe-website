@@ -1,6 +1,6 @@
 # Loupe
 
-Loupe is an open-source, local Windows AI website builder and web-design studio: AI agents build real websites and you refine them at Figma grade directly on the live page, with every visual edit verified against the real browser render. Bring your own API keys or the AI subscriptions you already pay for. MIT-licensed.
+Loupe is an open-source, local Windows AI website builder and web-design studio. AI agents build real websites, every AI edit is automatically verified against the real render, and you finish the rest by hand — select, move, resize, edit — on the same live page. Bring your own API keys or the AI subscriptions you already pay for. MIT-licensed.
 
 ## Links
 - Website: https://tryloupe.app/
